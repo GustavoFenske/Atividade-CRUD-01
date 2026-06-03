@@ -55,6 +55,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){ // vai pegar oque o usuario digitou no
         ?>
         <br>
         <button type="submit">Cadastrar</button>
+
+        
     </form>
     <hr>
     <?php
