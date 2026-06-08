@@ -6,26 +6,29 @@
         <th>ID</th>
         <th>Usuário</th>
         <th>Senha</th>
+        <th>Excluir</th>
+        <th>Editar</th>
     </tr>
 
     <?php
     
-    $sqlTodosUsuarios = "SELECT * FROM usuarios"; // ele vai pegar todos os usuarios
+    $sqlTodosUsuarios = "SELECT * FROM usuarios";
 
-    $resultadoTodosUsuarios = $conn->query($sqlTodosUsuarios); // vai armazenar a tabela de todos os usuarios
+    $resultadoTodosUsuarios = $conn->query($sqlTodosUsuarios);
 
     while($linha = $resultadoTodosUsuarios->fetch_assoc()){
 
-    // o fetch assoc, ele vai percorrer a tabela e armazenar o valor de linhas
+    // o fetch assoc
 
         echo "  <tr>
                     <td>". $linha['id'] . "</td>
                     <td>". $linha['usuario'] . "</td>
                     <td>". $linha['senha'] . "</td>
+                    <td> <a href='excluir.php?id=". $linha['id'] ."'> Excluir</td>
+
+                    <td> <a href='editar.php?id=". $linha['id'] ."'> Editar</td>
                 </tr>
         ";
-
-        // e isso e oque vai aparecer na tabela
 
     }
     

@@ -3,19 +3,15 @@
 
     include("infra/db/connect.php");
 
-    if($_SERVER['REQUEST_METHOD'] == "POST"){ //ele vai pegar as informações que foram enviadas  
+    if($_SERVER['REQUEST_METHOD'] == "POST"){
 
-        // vai pegar oque o usuario colocou no campo de login e colocar em uma variavel
         $usuario = $_POST["usuario"];
         $senha = $_POST["senha"];
         
-        // ele pega as variaveis usuario e senha 
         $sql = "SELECT * FROM usuarios WHERE usuario = '$usuario' AND senha = '$senha'";
 
-        // ele passa essas variaves para outra variavel
         $resultado = $conn->query($sql);
 
-        //se o usuario fazer login, o numero de linhas vai para um, e quando nao tem login volta para zero pois a sessao e destruida
         if ($resultado->num_rows > 0){
             $_SESSION["usuario"] = $usuario;
             header("Location: public/home.php");
@@ -48,7 +44,7 @@
                 echo $erro;
             };
 
-            // vai ver se tem conteudo dentro do erro e vai exibir o conteudo
+            // esse erro serve ara alguma coisa
         
         ?>
         <br>
